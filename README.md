@@ -1,21 +1,16 @@
 # Saas
 
-**TODO: Add description**
+**Using custom postgres types as primary keys**
 
-## Installation
+## Running the test
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `saas` to your list of dependencies in `mix.exs`:
+Make sure you have a postgres instance running on localhost.
+If needed edit `config/config.exs` to modify the connection params.
+It defaults to `postgres:postgres@localhost/saas_test`
 
-```elixir
-def deps do
-  [
-    {:saas, "~> 0.1.0"}
-  ]
-end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/saas](https://hexdocs.pm/saas).
-
+mix deps.get
+mix do ecto.create, ecto.migrate
+mix test
+```
+The `test/user_test.exs` has 1 test that fails when deleting the user.

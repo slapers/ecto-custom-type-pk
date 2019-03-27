@@ -10,7 +10,7 @@ defmodule Saas.UserTest do
     {:ok, user: Repo.insert!(%User{id: @id, name: "Jack"})}
   end
 
-  test "get!/2", %{user: user} do
+  test "delete!/2", %{user: user} do
     assert user == Repo.delete!(user)
   end
 end
